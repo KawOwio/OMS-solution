@@ -6,17 +6,20 @@ public class ProgrammingTasks : MonoBehaviour
 {
     [SerializeField] private string targetString;
     [SerializeField] private string guessString;
-    
+
+    private BinaryTree binaryTree;
+
+    [SerializeField] List<int> binaryValues = new List<int>();
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        binaryTree = gameObject.AddComponent<BinaryTree>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        for (int i = 0; i < binaryValues.Count; i++)
+        {
+            binaryTree.Add(binaryValues[i]);
+        }
     }
 
     public void FizzBuzz()
@@ -81,5 +84,23 @@ public class ProgrammingTasks : MonoBehaviour
 
         Debug.Log(result);
         return result;
+    }
+
+    public void PreOrderTraversal()
+    {
+        Debug.Log("PreOrder Traversal:");
+        binaryTree.TraversePreOrder(binaryTree.root);
+    }
+
+    public void InOrderTraversal()
+    {
+        Debug.Log("InOrder Traversal:");
+        binaryTree.TraverseInOrder(binaryTree.root);
+    }
+
+    public void PostOrderTraversal()
+    {
+        Debug.Log("PostOrder Traversal:");
+        binaryTree.TraversePostOrder(binaryTree.root);
     }
 }
