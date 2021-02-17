@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BinaryTree : MonoBehaviour
@@ -14,6 +12,7 @@ public class BinaryTree : MonoBehaviour
 
     public Node root { get; set; }
 
+    // Function to add new Nodes to a binary tree
     public void Add (int value)
     {
         Node before = null;
@@ -59,6 +58,8 @@ public class BinaryTree : MonoBehaviour
         // return true;
     }
 
+    // Function to find a specific node in a binary tree
+    // (Addition function, not used)
     public Node Find (int value)
     {
         return this.Find(value, this.root);
@@ -85,6 +86,8 @@ public class BinaryTree : MonoBehaviour
         return null;
     }
 
+    // Function to delete a specific node in a binary tree
+    // (Addition function, not used)
     public Node Remove (int value)
     {
         return this.Remove(value, this.root);
@@ -128,6 +131,8 @@ public class BinaryTree : MonoBehaviour
         return parent;
     }
 
+    // Function to find a node with minimal value
+    // (Addition function, not used)
     private int MinValue(Node node)
     {
         int minv = node.data;
@@ -141,28 +146,11 @@ public class BinaryTree : MonoBehaviour
         return minv;
     }
 
-    public int GetTreeDepth()
-    {
-        return this.GetTreeDepth(this.root);
-    }
-
-    private int GetTreeDepth(Node parent)
-    {
-        if (parent == null)
-        {
-            return 0;
-        }
-        else
-        {
-            return Math.Max(GetTreeDepth(parent.leftNode), GetTreeDepth(parent.rightNode)) + 1;
-        }
-    }
-
     public void TraversePreOrder(Node parent)
     {
         if (parent != null)
         {
-            Debug.Log(parent.data + " ");
+            Debug.Log(parent.data);
             TraversePreOrder(parent.leftNode);
             TraversePreOrder(parent.rightNode);
         }
@@ -173,7 +161,7 @@ public class BinaryTree : MonoBehaviour
         if (parent != null)
         {
             TraverseInOrder(parent.leftNode);
-            Debug.Log(parent.data + " ");
+            Debug.Log(parent.data);
             TraverseInOrder(parent.rightNode);
         }
     }
@@ -184,7 +172,7 @@ public class BinaryTree : MonoBehaviour
         {
             TraversePostOrder(parent.leftNode);
             TraversePostOrder(parent.rightNode);
-            Debug.Log(parent.data + " ");
+            Debug.Log(parent.data);
         }
     }
 }

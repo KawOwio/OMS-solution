@@ -7,9 +7,9 @@ public class ProgrammingTasks : MonoBehaviour
     [SerializeField] private string targetString;
     [SerializeField] private string guessString;
 
-    private BinaryTree binaryTree;
-
     [SerializeField] List<int> binaryValues = new List<int>();
+
+    private BinaryTree binaryTree;
 
     // Start is called before the first frame update
     void Start()
@@ -80,9 +80,12 @@ public class ProgrammingTasks : MonoBehaviour
             }
         }
 
+        // Score is precentage of the same characters on the same index of a string
+        // F.e. target string is "AAAA" and guess string is "AAAB" the result will be 75%
+        // if target string is "A" and guess string is "AA" the result will be 50%
         float result = (float)score / (float)longest * 100.0f;
 
-        Debug.Log(result);
+        Debug.Log(result + "%");
         return result;
     }
 
